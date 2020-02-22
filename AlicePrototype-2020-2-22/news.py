@@ -26,7 +26,7 @@ __news_default_type = __config.get("news", "default_type")
 
 def __analyse(raw_str):
     analyse_result = []
-    news_query_words = ['?', '有什么', '如何', '呢？', '告诉我']
+    news_query_words = ['?', '有什么', '如何', '呢？', '告诉我', '来点']
     if any(word in raw_str for word in news_query_words):
         news_type_words_map = {"社会": "shehui", "国内": "guonei", "国际": "guoji", "娱乐": "yule", "体育": "tiyu",
                                "军事": "junshi", "科技": "keji", "财经": "caijing", "时尚": "shishang"}
