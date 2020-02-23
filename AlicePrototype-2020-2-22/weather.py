@@ -186,7 +186,7 @@ def __analyse(raw_str):
                   '高雄', '嘉义', '台南', '台东', '屏东', '台中', '苗栗', '彰化', '南投', '花莲', '云林', '陇南', '六盘水', '阿拉善盟', '伊犁', '博尔塔拉',
                   '巴音郭楞', '甘南', '延边', '西双版纳', '黔南', '黔南', '湘西', '迪庆']
     if any(word in raw_str for word in weather_query_words):
-        query_props = {'time': 'today', 'city': __weather_default_city}
+        query_props = {'time': 'TODAY', 'city': __weather_default_city}
         today_words = ['今天', 'today']
         tomorrow_words = ['明天', 'tomorrow']
         twodays_words = ['今天和明天', '今明']
@@ -236,7 +236,7 @@ def handle(raw_str):
                 wind_direction_tomorrow = weather_response["result"]["future"][1]["direct"]
                 wind_power_now = weather_response["result"]["realtime"]["power"]
                 if tag.props['time'] == 'TODAY':
-                    response_text = "今天[" + city + "]天气" + info_today + "，气温 " + temperature_today + "，今天风向为" + wind_direction + "，当前风力" + wind_power_now + "。"
+                    response_text = "今天[" + city + "]天气" + info_today + "，气温 " + temperature_today + "，今天风向为" + wind_direction_today + "，当前风力" + wind_power_now + "。"
                     if (int(temperature_today_max) - int(temperature_today_min) >= int(__temp_threshold)):
                         response_text = response_text + "\n今天昼夜温差很大的说，主人要多加注意穿衣保暖哦~"
                     if (int(wind_power_now[:-1]) >= int(__wind_threshold)):
